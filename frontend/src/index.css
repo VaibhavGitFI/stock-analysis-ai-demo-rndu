@@ -1,0 +1,132 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Typefaces */
+  --f-ui:      'Sora', -apple-system, sans-serif;
+  --f-data:    'JetBrains Mono', 'Courier New', monospace;
+
+  /* Palette */
+  --paper:     #f7f7f8;
+  --white:     #FFFFFF;
+  --card:      #f4f4f5;
+
+  --ink:       #1a1a1a;
+  --ink-2:     #374151;
+  --ink-3:     #6b7280;
+  --ink-4:     #9ca3af;
+  --ink-5:     #d1d5db;
+
+  --rule:      #e5e7eb;
+  --rule-2:    #d1d5db;
+
+  /* Accent — teal/green */
+  --accent:    #0d9488;
+  --accent-2:  #99f6e4;
+  --accent-bg: #f0fdfa;
+
+  /* Data colours */
+  --bull:      #059669;
+  --bull-bg:   #ecfdf5;
+  --bull-rule: #6ee7b7;
+
+  --bear:      #dc2626;
+  --bear-bg:   #fef2f2;
+  --bear-rule: #fca5a5;
+
+  --flat:      #d97706;
+  --flat-bg:   #fffbeb;
+  --flat-rule: #fcd34d;
+
+  --info:      #2563eb;
+  --info-bg:   #eff6ff;
+  --info-rule: #93c5fd;
+
+  /* Sidebar */
+  --sidebar-bg:         #111827;
+  --sidebar-hover:      #1f2937;
+  --sidebar-active:     #374151;
+  --sidebar-text:       #f3f4f6;
+  --sidebar-text-muted: #9ca3af;
+  --sidebar-border:     #1f2937;
+
+  /* Chat */
+  --chat-bg:     #f7f7f8;
+  --user-bubble: #ffffff;
+  --input-bg:    #ffffff;
+  --input-border:#e5e7eb;
+
+  /* Sizes */
+  --r:    6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--f-ui);
+  background: var(--chat-bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--rule-2); border-radius: 3px; }
+
+input, textarea, select, button { font-family: var(--f-ui); }
+textarea { resize: none; }
+
+/* ── Keyframes ── */
+@keyframes up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+@keyframes bar-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.15); }
+  50%       { transform: scaleY(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+@keyframes rec-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+  50%       { box-shadow: 0 0 0 6px rgba(220, 38, 38, 0); }
+}
+
+@keyframes bounce-dots {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+}
