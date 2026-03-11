@@ -11,8 +11,24 @@ const app  = express();
 const PORT = process.env.PORT || 3001;
 
 // ─── Middleware ────────────────────────────────────────────────────────────────
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors());
 app.use(express.json({ limit: "50mb" }));
+
+// ─── Root route to prevent platform 404 ────────────────────────────────────────
+
+app.get("/", (_req, res) => {
+  res.json({
+    service: "Research Terminal Backend",
+    status: "running",
+    endpoints: [
+      "/api/health",
+      "/api/test-yahoo/:symbol",
+      "/api/transcribe",
+      "/api/analyze"
+    ]
+  });
+});
+
 
 const tmpDir = path.join(__dirname, "tmp");
 if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
